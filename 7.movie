@@ -1,0 +1,62 @@
+
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+class Movie{
+private String name;
+private double imbRating;
+public Movie(String name,double imbRating){
+this.name = name;
+this.imbRating = imbRating;
+}
+public String getName(){
+return name;
+}
+public void setName(String name){
+this.name = name;
+}
+public double getImbRating(){
+return imbRating;
+}
+public void setImbRating(double imbRating){
+this.imbRating = imbRating;
+}
+@Override
+public String toString(){
+return "Movie [name = "+name+", imbRating = "+imbRating+"]\n";
+}
+
+}
+
+class MovieNameComparator implements Comparator<Movie>{
+@Override
+public int compare(Movie o1,Movie o2){
+return o1.getName().compareTo(o2.getName());
+}
+}
+
+class MovieRatingComparator implements Comparator<Movie>{
+@Override
+public int compare(Movie o1,Movie o2){
+return Double.compare(o2.getImbRating(),o1.getImbRating());
+}
+}
+
+public class SetDemo_1{
+public static void main(String [] args){
+MovieNameComparator mnc = new MovieNameComparator();
+Set<Movie> movies1 = new TreeSet<>(mnc);
+movies1.add(new Movie("The Batsman" ,8.0));
+movies1.add(new Movie("The Lord of the Rings : The return of the king " ,8.9));
+movies1.add(new Movie("The Matrix" ,8.7));
+movies1.add(new Movie("Finding Nemo" ,8.1));
+movies1.add(new Movie("Avengers : Endgame" ,8.3));
+System.out.println("Movies in Ascending order of their names : ");
+System.out.println(movies1);
+MovieRatingComparator mrc = new MovieRatingComparator();
+Set<Movie> movies2 = new TreeSet<>(mrc);
+movies2.addAll(movies1);
+System.out.println("Movies in Descending order of their ratings :");
+System.out.println(movies2);
+}
+}
