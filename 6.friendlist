@@ -1,0 +1,27 @@
+
+import java.util.ArrayList; //implement class for the interface list
+import java.util.List;//interface
+public class ListDemo {
+public static void main(String [] args){
+ArrayList<String> friends =new ArrayList<>();
+friends.add("Aarifa");
+friends.add("Johanna");
+friends.add("Gracy");
+friends.add("Ross");
+friends.add("Catherline");
+System.out.println(friends);
+System.out.println("Is Rachel in the list of friends:");
+System.out.println(friends);
+friends.remove("Ross");// remove using value
+System.out.println(friends);
+friends.remove(2);//remove using the index
+System.out.println(friends);
+friends.add("Rachel");//add at end
+System.out.println(friends);
+friends.add(3,"keith");//add at specific index
+System.out.println(friends);
+
+friends.add(3,"Bryan");// add at specific index
+System.out.println(friends);
+}
+}
