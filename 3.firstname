@@ -1,0 +1,87 @@
+
+A. Mutable
+Code:
+class Person
+{
+String firstName;
+String lastName;
+public Person(String firstName,String lastName)
+{
+this.firstName=firstName;
+this.lastName=lastName;
+}
+public String getFirstName()
+{
+return firstName;
+}
+public String getLastName()
+{
+return lastName;
+}
+public void setFirstName(String firstName)
+{
+this.firstName=firstName;
+}
+public void setLastName(String lastName)
+{
+this.lastName=lastName;
+}
+@Override
+public String toString()
+{
+return "Person [firstName=" + firstName + ",lastName=" + lastName + "]";
+}
+}
+public class Personclient
+{
+public static void main(String[] args)
+{
+Person p1 = new Person ("sneha","Satish");
+System.out.println(p1);
+p1.setLastName("Dalvi");
+System.out.println(p1);
+}
+}
+
+B)IMUTABLE
+class Person
+{
+String firstName;
+String lastName;
+public Person(String firstName,String lastName)
+{
+this.firstName=firstName;
+this.lastName=lastName;
+}
+public String getFirstName()
+{
+return firstName;
+}
+public String getLastName()
+{
+return lastName;
+}
+/*public void setFirstName(String firstName)
+{
+this.firstName=firstName;
+}
+public void setLastName(String lastName)
+{
+this.lastName=lastName;
+}*/
+@Override
+public String toString()
+{
+return "Person [firstName=" + firstName + ",lastName=" + lastName + "]";
+}
+}
+public class Personclient
+{
+public static void main(String[] args)
+{
+Person p1 = new Person ("Rutuja","Nitin");
+System.out.println(p1);
+/*/p1.setLastName("Dalal");
+System.out.println(p1);*/
+}
+}
