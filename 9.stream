@@ -1,0 +1,28 @@
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.*;
+public class expt9
+{
+public static void main(String[] args)
+{
+List<Double>list = new ArrayList<>();
+double[]a = new double[]{0.45,1.0,2.2,3.5,4.7,5.0,0.21,1.2};
+for (double i:a)
+{
+list.add(i);
+}
+System.out.println("List : " +list);
+/*List<Double> amp = Array.asList(new double[]{0.45,1.0,2.2,3.5,4.7,5.0,0.21,1.2});
+System.out.println(amp);*/
+double upperthreshold = 4.5;
+double lowerthreshold = 0.5;
+List<Double> output = list.stream().filter(n-> n>0.5 && n<=4.5).
+map(n->n*2).collect(Collectors.toList());
+System.out.println("Output: "+output);
+Double max = output.stream().max(Double::compare).get();
+System.out.println("Maximum: "+max);
+Double min = output.stream().min(Double::compare).get();
+System.out.println("Minimum: "+min);
+}
+}
