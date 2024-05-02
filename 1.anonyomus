@@ -1,0 +1,61 @@
+
+class Fruits
+{
+public void mango()
+{
+System.out.println("sweet");
+}
+public void kiwi()
+{
+System.out.println("sour");
+}
+}
+public class Taste
+{
+public static void main(String[] args)
+{
+Fruits f= new Fruits()
+{
+public void mango()
+{
+System.out.println("this mango is not sweet");
+}
+public void kiwi()
+{
+System.out.println("this is not sour ");
+}
+};
+
+f.mango();
+f.kiwi();
+Fruits f1=new Fruits();
+f1.mango();
+f1.kiwi();
+}
+}
+
+
+code 2
+interface Mango {
+public void mango();
+public void kiwi();
+}
+public class Taste_interface{// outer class
+public static void main(String args[])
+{
+Fruits f=new Fruits() //nested class as anonynums class
+{
+public void mango()
+{
+System.out.println("this mango is not sweet");//overriding
+}
+public void kiwi()
+{
+System.out.println("this is not sour");//overriding
+}
+};
+
+f.mango();
+f.kiwi();
+}
+}
