@@ -1,0 +1,20 @@
+
+public class Stringconcat
+{
+public static void main(String[] args)
+{
+String s1=new String("hello");
+String s2=new String("wolrd");
+String s3=new String("helloworld");
+String s4=s1.concat(s2);
+if (s3==s4)
+System.out.println("Strings are equal using ==");
+else
+System.out.println("Strings are not equal using ==");
+if (s3.equals(s4))
+System.out.println("Strings are equal using equals()");
+else
+System.out.println("Stings are not equal using equals()");
+System.out.println(s4.substring(0,s1.length()));
+System.out.println(s4.substring(s1.length()));
+}
