@@ -1,0 +1,56 @@
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+class Subscriber{
+private int subId;
+private String name;
+public Subscriber(int subId,String name){
+this.subId=subId;
+this.name=name;
+}
+public int getSubId(){
+return subId;
+}
+public String getName(){
+return name;
+}
+@Override
+public String toString(){
+return "Subscriber [subId="+subId+",name="+name+ "]";
+}
+}
+public class MapDemo{
+public static void main(String[] args){
+Subscriber s1= new Subscriber(101,"Mr.P");
+Subscriber s2= new Subscriber(201,"Mr.Q");
+Subscriber s3= new Subscriber(301,"Mr.R");
+Map<String,Subscriber> devices =new HashMap<>();
+devices.put("d1",s1);
+devices.put("d2",s1);
+devices.put("d3",s1);
+devices.put("d4",s1);
+devices.put("e1",s2);
+devices.put("e2",s2);
+devices.put("e3",s2);
+devices.put("f1",s3);
+devices.put("f2",s3);
+System.out.println(devices);
+Map<Subscriber,List<String>> lsd=new HashMap<>();
+for(Entry<String,Subscriber> entry : devices.entrySet()){
+String deviceid=entry.getKey();
+Subscriber s=entry.getValue();
+if (lsd.containsKey(s)){
+lsd.get(s).add(deviceid);
+}
+else{
+List<String> devicelist=new ArrayList<>();
+devicelist.add(deviceid);
+lsd.put(s,devicelist);
+}
+}
+System.out.println(lsd);
+}
+}
