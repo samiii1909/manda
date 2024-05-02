@@ -1,0 +1,155 @@
+
+C. Making it Mutable again
+Code:
+class Address
+{
+private String city;
+private String pincode;
+public Address(String city,String pincode)
+{
+this.city = city;
+this.pincode = pincode;
+}
+public String getCity()
+{
+return city;
+}
+public void setCity(String city)
+{
+this.city=city;
+}
+public String getPincode()
+{
+return pincode;
+}
+public void setPincode(String Pincode)
+{
+this.pincode=pincode;
+}
+@Override
+public String toString()
+{
+return "Address[City=" + city + ",pincode=" + pincode + "]";
+}
+}
+final class Person
+{
+private final String firstName;
+private final String lastName;
+private Address address;
+public Person(String firstName,String lastName,Address address)
+{
+this.firstName=firstName;
+this.lastName=lastName;
+this.address=address;
+//this.address=new Address(address.getCity(),address.getPincode());
+}
+public String getFirstName()
+{
+return firstName;
+}
+public String getLAstName()
+{
+return lastName;
+}
+public Address getAddress()
+{
+return address;
+//return new Address(address.getCity(),address.getPincode());
+}
+@Override
+public String toString()
+{
+return "Person[firstName=" + firstName + ",lastName=" + lastName + ",address="
++ address + "]";
+}
+}
+public class PersonTest2
+{
+public static void main(String[] args)
+{
+Address address = new Address("Delhi","411051");
+Person p1 = new Person ("Rutuja","Dalal",address);
+System.out.println(p1);
+p1.getAddress().setCity("Pune");
+System.out.println(p1); //still the same p1
+}
+
+
+
+D. Immutable again
+Code :
+class Address
+{
+private String city;
+private String pincode;
+public Address(String city,String pincode)
+{
+this.city = city;
+this.pincode = pincode;
+}
+public String getCity()
+{
+return city;
+}
+public void setCity(String city)
+{
+this.city=city;
+}
+public String getPincode()
+{
+return pincode;
+}
+public void setPincode(String Pincode)
+{
+this.pincode=pincode;
+}
+@Override
+public String toString()
+{
+return "Address[City=" + city + ",pincode=" + pincode + "]";
+}
+}
+final class Person
+{
+private final String firstName;
+private final String lastName;
+private Address address;
+public Person(String firstName,String lastName,Address address)
+{
+this.firstName=firstName;
+this.lastName=lastName;
+//this.address=address;
+this.address=new Address(address.getCity(),address.getPincode());
+}
+public String getFirstName()
+{
+return firstName;
+}
+public String getLAstName()
+{
+return lastName;
+}
+public Address getAddress()
+{
+//return address;
+return new Address(address.getCity(),address.getPincode());
+}
+@Override
+public String toString()
+{
+return "Person[firstName=" + firstName + ",lastName=" + lastName + ",address="
++ address + "]";
+}
+}
+public class PersonTest3
+{
+public static void main(String[] args)
+{
+Address address = new Address("Delhi","411051");
+Person p1 = new Person ("Rutuja","Dalal",address);
+System.out.println(p1);
+p1.getAddress().setCity("Pune");
+System.out.println(p1); //still the same p1
+}
+}
